@@ -5,7 +5,7 @@ import pandas as pd
 # CONFIG
 # ============================================
 
-TARGET_VOL = 0.15
+TARGET_VOL = 0.18   # was 0.15
 MIN_VOL = 0.01
 MAX_LEVERAGE = 3.0
 MAX_POSITION = 1.0
@@ -20,23 +20,23 @@ TRADE_THRESHOLD_HIGH_VOL = 0.07
 TRADE_THRESHOLD_LOW_VOL = 0.12
 
 # ============================================
-# STEP 2: REGIME-BASED PORTFOLIO WEIGHTS
+# STEP 2 + OPTION 2: REGIME-BASED WEIGHTS
 # ============================================
 
-TREND_REGIME_TREND_WEIGHT = 0.8
-TREND_REGIME_MR_WEIGHT = 0.2
+TREND_REGIME_TREND_WEIGHT = 0.85   # was 0.8
+TREND_REGIME_MR_WEIGHT = 0.15      # was 0.2
 
 CHOP_REGIME_TREND_WEIGHT = 0.3
 CHOP_REGIME_MR_WEIGHT = 0.7
 
 
 # ============================================
-# TRADE ENGINE (STEP 2: DYNAMIC REGIME BLEND)
+# TRADE ENGINE (OPTION 2: HIGHER EXPOSURE)
 # ============================================
 
 def apply_trade_engine(df):
 
-    print("\n--- RUNNING TRADE ENGINE (STEP 2: DYNAMIC REGIME BLEND) ---\n")
+    print("\n--- RUNNING TRADE ENGINE (OPTION 2: HIGHER EXPOSURE / DYNAMIC REGIME BLEND) ---\n")
 
     # ========================================
     # VOL TARGETING
@@ -95,7 +95,6 @@ def apply_trade_engine(df):
         )
 
     # ========================================
-    # STEP 2:
     # REGIME-BASED PORTFOLIO COMBINATION
     # ========================================
 
@@ -117,8 +116,7 @@ def apply_trade_engine(df):
     )
 
     # ========================================
-    # STEP 1 LOCKED:
-    # TRADE FILTER + SHORT MIN HOLD
+    # TRADE FILTER + MIN HOLD
     # ========================================
 
     vol = df["realised_vol_20"]

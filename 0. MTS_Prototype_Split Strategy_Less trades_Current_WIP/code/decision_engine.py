@@ -11,7 +11,7 @@ def compute_risk_cap(risk_score):
     elif risk_score == -1:
         return 0.3
     elif risk_score == 0:
-        return 0.6
+        return 0.7   # was 0.6
     else:
         return 1.0
 
@@ -31,7 +31,7 @@ def compute_threshold(risk_score):
 
 
 # ============================================
-# FIX 10: SOFT REGIME WEIGHTING
+# EXPOSURE ENGINE
 # ============================================
 
 def compute_exposure(row):
@@ -85,7 +85,7 @@ def generate_decision_reason(row):
 
 def run_decision_engine(df):
 
-    print("\n--- RUNNING DECISION ENGINE (FIX 10: SOFT REGIME WEIGHTING) ---\n")
+    print("\n--- RUNNING DECISION ENGINE (OPTION 2: HIGHER NEUTRAL RISK CAP) ---\n")
 
     exposures = df.apply(compute_exposure, axis=1)
 
