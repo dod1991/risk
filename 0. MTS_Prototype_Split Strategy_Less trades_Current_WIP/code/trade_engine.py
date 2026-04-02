@@ -8,7 +8,7 @@ import pandas as pd
 TARGET_VOL = 0.18
 MIN_VOL = 0.01
 MAX_LEVERAGE = 3.0
-MAX_POSITION = 1.5
+MAX_POSITION = 1.0   # REVERTED
 
 # ============================================
 # STEP 1 LOCKED-IN TRADE CONTROL
@@ -24,20 +24,20 @@ TRADE_THRESHOLD_LOW_VOL = 0.12
 # REGIME-BASED PORTFOLIO WEIGHTS
 # ============================================
 
-TREND_REGIME_TREND_WEIGHT = 0.95
-TREND_REGIME_MR_WEIGHT = 0.05
+TREND_REGIME_TREND_WEIGHT = 0.85   # REVERTED
+TREND_REGIME_MR_WEIGHT = 0.15      # REVERTED
 
 CHOP_REGIME_TREND_WEIGHT = 0.20
 CHOP_REGIME_MR_WEIGHT = 0.80
 
 
 # ============================================
-# TRADE ENGINE (STEP 5: STRONGER CHOP MR TILT)
+# TRADE ENGINE
 # ============================================
 
 def apply_trade_engine(df):
 
-    print("\n--- RUNNING TRADE ENGINE (STEP 5: STRONGER CHOP MR TILT) ---\n")
+    print("\n--- RUNNING TRADE ENGINE ---\n")
 
     # ========================================
     # VOL TARGETING
