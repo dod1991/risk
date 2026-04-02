@@ -8,7 +8,7 @@ import pandas as pd
 TARGET_VOL = 0.18
 MIN_VOL = 0.01
 MAX_LEVERAGE = 3.0
-MAX_POSITION = 1.0
+MAX_POSITION = 1.5   # STEP 1 FIX: increased from 1.0
 
 # ============================================
 # STEP 1 LOCKED-IN TRADE CONTROL
