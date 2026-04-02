@@ -1,0 +1,19 @@
+# Ignore data & outputs
+data/
+backtest_output/
+decisionEngine_output/
+GoldenSource/
+marketData_transformed/
+
+# Ignore documents
+*.docx
+
+# Ignore logs / text files
+*.txt
+
+# Python cache
+__pycache__/
+*.pyc
+
+# VS Code settings
+.vscode/
